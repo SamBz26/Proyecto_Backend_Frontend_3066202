@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Basico 01</title>
+</head>
+<body>
+    <nav>
+        <h1>Bienvenidos al mundial de futbol</h1>
+        <p>Aui encontraras el nombre de lagunos euipos clasificados al mundial</p>
+    </nav>
+    <h2>Equipos de futbol clasificados</h2>
+
+    <!--Formulario par crear o ediar equipos-->
+    <form id="datoform">
+        <input type="hidden" id="id_equipo">
+    <!--Input e diligenciamiento-->
+    <div>
+        <label for="nombre">Nombre del equipo</label>
+        <input type="text" id="nombre" required>
+    </div>
+    <!--Botones-->
+    <button type="submit" id="btnguardar">Guardar</button>
+    <button type="button" id="btncancelar">Cancelar</button>
+    </form>
+
+    <!--Contenedor tipo plantilla para renderizar los equipos-->
+    <div id="contenedorcards" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;"></div>
+
+    <!--Plantilla de renderizado-->
+    <template id="templatecard">
+        <div class="card_equipos" style="border: 1px solid #ccc; padding: 16px; border-radius: 8px; width: 250px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center;">
+            <h3 class="nombreequipso"></h3>
+            <button class="btneditar">Editar</button>
+            <button class="btneliminar">Eliminar</button>
+        </div>
+    </template>
+    <!--Se invoca el archivo JavaScrip al final del Cod-->
+    <script src="index.js"></script>
+
+</body>
+</html>
