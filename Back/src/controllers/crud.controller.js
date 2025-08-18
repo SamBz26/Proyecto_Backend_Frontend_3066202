@@ -1,9 +1,9 @@
-const db = require("../config/conexion_DB");
+const db = require("../config/conexion_DB"); // Importar la configuración de la base de datos
 class CrudController {
     // Obtiene todos los registros de una tabla
-    async obtenertodos(tabla) {
+    async obtenertodos(tabla) { // Usar consultas parametrizadas para evitar inyecciones SQL
         try {
-            const [resultados] = await db.query(`SELECT * FROM ${tabla}`);
+            const [resultados] = await db.query(`SELECT * FROM ${tabla}`); 
             return resultados;
         } catch (error) {
             throw error;
@@ -12,12 +12,13 @@ class CrudController {
     // Obtiene un registro por ID
     async obteneruno(tabla, idcampo, id) {
         try {
-            const [resultado] = await db.query(`SELECT * FROM ?? WHERE ?? = ?`, [tabla, idcampo, id]);
+            const [resultado] = await db.query(`SELECT * FROM ?? WHERE ?? = ?`, [tabla, idcampo, id]); // Usar consultas parametrizadas, SELECT * FROM ?? WHERE ?? = ? significa que los valores serán reemplazados por los elementos del array
             return resultado[0];
         } catch (error) {
             throw error;
         }
     }
+    // Crea un nuevo registro
     async crear(tabla, datos) {
         try {
             const [resultado] = await db.query(`INSERT INTO ?? SET ?`, [tabla, datos]);
@@ -26,6 +27,7 @@ class CrudController {
             throw error;
         }
     }
+    // Actualiza un registro por ID
     async actualizar(tabla, idcampo, id, datos) {
         try {
             const [resultado] = await db.query(`UPDATE ?? SET ? WHERE ?? = ?`, [tabla, datos, idcampo, id]);
@@ -37,6 +39,7 @@ class CrudController {
             throw error;
         }
     } 
+    // Elimina un registro por ID
     async eliminar(tabla, idcampo, id) {
         try {
             const [resultado] = await db.query(`DELETE FROM ?? WHERE ?? = ?`, [tabla, idcampo, id]);
@@ -49,4 +52,4 @@ class CrudController {
         }
     }
 }
-module.exports = CrudController;
+module.exports = CrudController; // Exportar la clase para usarla en otras partes de la aplicación

@@ -8,17 +8,17 @@
 <body>
     <nav>
         <h1>Bienvenidos al mundial de futbol</h1>
-        <p>Aui encontraras el nombre de lagunos euipos clasificados al mundial</p>
+        <p>Aqui encontraras el nombre de lagunos euipos clasificados al mundial</p>
     </nav>
     <h2>Equipos de futbol clasificados</h2>
 
     <!--Formulario par crear o ediar equipos-->
     <form id="datoform">
-        <input type="hidden" id="id_equipo">
+        <input type="hidden" id="id_equipo"> <!-- el hidden es para almacenar el ID del equipo a editar -->
     <!--Input e diligenciamiento-->
     <div>
         <label for="nombre">Nombre del equipo</label>
-        <input type="text" id="nombre" required>
+        <input type="text" id="nombre" required placeholder="Ingrese el nombre del equipo"> 
     </div>
     <!--Botones-->
     <button type="submit" id="btnguardar">Guardar</button>
@@ -29,9 +29,9 @@
     <div id="contenedorcards" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;"></div>
 
     <!--Plantilla de renderizado-->
-    <template id="templatecard">
+    <template id="templatecard"> <!-- la etiqueta template es un contenedor para elementos que se pueden clonar -->
         <div class="card_equipos" style="border: 1px solid #ccc; padding: 16px; border-radius: 8px; width: 250px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center;">
-            <h3 class="nombreequipso"></h3>
+            <h3 class="nombreequipo"></h3>
             <button class="btneditar">Editar</button>
             <button class="btneliminar">Eliminar</button>
         </div>
